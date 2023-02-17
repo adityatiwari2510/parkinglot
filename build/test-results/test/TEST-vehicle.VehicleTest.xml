@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="vehicle.VehicleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T21:06:47" hostname="Adityas-MacBook-Pro.local" time="0.035">
+  <properties/>
+  <testcase name="getExitTime should return time in correct format()" classname="vehicle.VehicleTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
