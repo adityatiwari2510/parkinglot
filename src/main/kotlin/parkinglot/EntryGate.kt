@@ -12,20 +12,12 @@ class EntryGate {
         var nextTicketNumber = 1L
     }
 
-    private val carParkingSpots = Array<Int>(TOTAL_CAR_PARKING_SPOTS) { PARKING_SPOT_FREE }
+    val parkingSpot = ParkingSpot.getInstance()
 
-    private fun isCarParkingSpotFree(): Boolean {
-        return carParkingSpots.contains(PARKING_SPOT_FREE)
-    }
 
     fun generateTicket(): Ticket {
         val car = Vehicle.createVehicle(VehicleType.CAR)
-
-        if (isCarParkingSpotFree()) {
-            val spotNumber = car.parkVehicle()
-            return Ticket(nextTicketNumber++, 1, car.getEntryTime())
-        }
-
-        throw Exception("Parking Slots not available.")
+        val spotNumber = parkingSpot.allocateSpotForVehicle(car)
+        return Ticket(nextTicketNumber++, spotNumber, car.getEntryTime())
     }
 }
